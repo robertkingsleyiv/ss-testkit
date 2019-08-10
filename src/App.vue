@@ -63,11 +63,11 @@
                                                 <span v-else>-</span>
                         <div class="Supremacy" v-if="item.stats.data[0]">{{Math.round(item.supremacy.localTeam)}}%</div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[0]">{{item.stats.data[0].shots.total}}</div>
+                        <div class="Attempts" v-if="item.stats.data[0]"><span v-if="item.stats.data[0].shots">{{item.stats.data[0].shots.total}}</span></div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[0]">{{item.stats.data[0].shots.ongoal}}</div>
+                        <div class="Attempts" v-if="item.stats.data[0]"><span v-if="item.stats.data[0].shots">{{item.stats.data[0].shots.ongoal}}</span></div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[0]">{{item.stats.data[0].shots.insidebox}}</div>
+                        <div class="Attempts" v-if="item.stats.data[0]"><span v-if="item.stats.data[0].shots">{{item.stats.data[0].shots.insidebox}}</span></div>
                                                 <span v-else>-</span>
                         <div class="Attempts" v-if="item.stats.data[0]">{{item.stats.data[0].corners}}</div>
                                                 <span v-else>-</span>
@@ -82,11 +82,11 @@
                                                 <span v-else>-</span>
                         <div class="Supremacy" v-if="item.stats.data[1]">{{Math.round(item.supremacy.visitorTeam)}}%</div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[1]">{{item.stats.data[1].shots.total}}</div>
+                        <div class="Attempts" v-if="item.stats.data[1]"><span v-if="item.stats.data[0].shots">{{item.stats.data[1].shots.total}}</span></div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[1]">{{item.stats.data[1].shots.ongoal}}</div>
+                        <div class="Attempts" v-if="item.stats.data[1]"><span v-if="item.stats.data[0].shots">{{item.stats.data[1].shots.ongoal}}</span></div>
                                                 <span v-else>-</span>
-                        <div class="Attempts" v-if="item.stats.data[1]">{{item.stats.data[1].shots.insidebox}}</div>
+                        <div class="Attempts" v-if="item.stats.data[1]"><span v-if="item.stats.data[0].shots">{{item.stats.data[1].shots.insidebox}}</span></div>
                                                 <span v-else>-</span>
                         <div class="Attempts" v-if="item.stats.data[1]">{{item.stats.data[1].corners}}</div>
                                                 <span v-else>-</span>
@@ -121,7 +121,7 @@ export default {
     },
     methods: {
         pollMatchData() {
-            axios.get(`http://localhost:9299/data`).then(resp => {
+            axios.get(`http://167.71.188.139:9299/data`).then(resp => {
                 this.data = resp.data
                 this.updateCounter++
             })
